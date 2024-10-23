@@ -1,0 +1,36 @@
+<!-- src/app/products/products.component.html -->
+<h2>Products List</h2>
+<div class="container">
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Units</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <td>{{ product.id }}</td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.description }}</td>
+        <td>{{ product.price | currency }}</td>
+        <td>{{ product.units }}</td>
+        <td>
+          <button class="delete" (click)="deleteProduct(product._id)">Delete</button>
+          <a [routerLink]="['/update-product', product._id]">
+            <button class="update">Edit</button>
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <!-- Success message display -->
+  <div *ngIf="successMessage" class="alert alert-success" style="margin-top: 20px;">
+    {{ successMessage }}
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="update-product">
+  <h2>Update Product</h2>
+  
+  <form (ngSubmit)="updateProduct()">
+      <label for="name">Product Name:</label>
+      <input id="name" [(ngModel)]="product.name" name="name" required>
+      
+      <label for="price">Product Price:</label>
+      <input id="price" [(ngModel)]="product.price" name="price" type="number" required>
+      
+      <label for="units">Units Available:</label>
+      <input id="units" [(ngModel)]="product.units" name="units" type="number" required>
+      
+      <label for="description">Product Description:</label>
+      <textarea id="description" [(ngModel)]="product.description" name="description" required></textarea>
+      
+      <button type="submit">Update Product</button>
+  </form>
+  
+  <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
+</div>

@@ -1,13 +1,18 @@
+// src/app/app.component.ts
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  template: `
+    <div class="app-container">
+      <h1>Product Management</h1>
+      <nav>
+        <a routerLink="/products" class="nav-link">Products</a>
+        <a routerLink="/add-product" class="nav-link">Add Product</a>
+      </nav>
+      <router-outlet></router-outlet>
+    </div>
+  `,
+  styleUrls: ['./app.component.css']  // Link to the CSS file
 })
-export class AppComponent {
-  title = 'product-management';
-}
+export class AppComponent {}
